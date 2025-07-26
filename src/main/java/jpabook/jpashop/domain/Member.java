@@ -21,5 +21,7 @@ public class Member {
     private Address address;
 
     @OneToMany(mappedBy = "member")
+    //여기서 member는 Order에 있는 Member member를 뜻함
+    //외래키가 Order에 있기 때문에 Order를 연관관계의 주인으로 정했기 때문
     private List<Order> orders = new ArrayList<>();
 }

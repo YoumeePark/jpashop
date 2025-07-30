@@ -39,7 +39,7 @@ public class OrderItem {
     //==비즈니스 로직 ==//
     //주문 취소
     public void cancel() {
-        getItem().addStock(count);
+        getItem().addStock(count); //취소됐으니까 "재고수량"을 원복해야 함
     }
 
     //==조회 로직 ==//

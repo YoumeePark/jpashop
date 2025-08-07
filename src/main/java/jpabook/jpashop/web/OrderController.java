@@ -1,6 +1,7 @@
 package jpabook.jpashop.web;
 
 import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.Order;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.OrderSearch;
 import jpabook.jpashop.service.ItemService;
@@ -45,6 +46,9 @@ public class OrderController {
     //주문 목록 검색 컨트롤러
     @GetMapping(value = "/orders")
     public String orderList(@ModelAttribute("orderSearch") OrderSearch orderSearch, Model model) {
-        orderService.findOrders(orderSearch);
+        List<Order> orders = orderService.findOrders(orderSearch);
+        model.addAttribute("orders", orders);
+
+        return "order/orderList";
     }
 }
